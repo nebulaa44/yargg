@@ -1,5 +1,6 @@
 use rand::prelude::*;
 
+use std::cmp::Ordering::*;
 use std::io::{Write, stdin, stdout};
 
 fn main() {
@@ -8,6 +9,8 @@ fn main() {
 
     let mut guess: String = String::new();
     loop {
+        guess.clear();
+
         print!("Enter your guess: ");
         stdout()
             .flush()
@@ -23,6 +26,16 @@ fn main() {
             Err(_) => 101
         };
 
+        if guess_parsed > 100 || guess_parsed < 1 {
+            continue;
+        }
 
+        match guess_parsed.cmp(&target) {
+            Equal => { return },
+            Less => { println!("Too low"); },
+            Greater => { println!("Too high"); }
+        }
     }
+
+    println!("You win!");
 }
