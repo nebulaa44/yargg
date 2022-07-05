@@ -5,7 +5,7 @@ use std::io::{Write, stdin, stdout};
 
 fn main() {
     let target = rand::thread_rng().gen_range(1..=100);
-    println!("{target}");
+    //println!("{target}");
 
     let mut guess: String = String::new();
     loop {
@@ -31,7 +31,7 @@ fn main() {
         }
 
         match guess_parsed.cmp(&target) {
-            Equal => { return },
+            Equal => { break },
             Less => { println!("Too low"); },
             Greater => { println!("Too high"); }
         }
