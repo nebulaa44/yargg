@@ -1,3 +1,4 @@
+use colored::*;
 use rand::prelude::*;
 
 use std::cmp::Ordering::*;
@@ -32,10 +33,10 @@ fn main() {
 
         match guess_parsed.cmp(&target) {
             Equal => { break },
-            Less => { println!("Too low"); },
-            Greater => { println!("Too high"); }
+            Less => { println!("{}", "Too low".red()); },
+            Greater => { println!("{}", "Too high".red()); }
         }
     }
 
-    println!("You win!");
+    println!("{}", "You win!".green());
 }
