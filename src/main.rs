@@ -1,6 +1,6 @@
 use rand::prelude::*;
 
-use std::io::{Read, Write, stdin, stdout};
+use std::io::{Write, stdin, stdout};
 
 fn main() {
     let target = rand::thread_rng().gen_range(1..=100);
@@ -16,5 +16,13 @@ fn main() {
         stdin()
             .read_line(&mut guess)
             .expect("Could not read guess");
+
+        let parse_result = guess.trim().parse::<u8>();
+        let guess_parsed = match parse_result {
+            Ok(v)    => v,
+            Err(_) => 101
+        };
+
+
     }
 }
