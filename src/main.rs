@@ -45,7 +45,11 @@ fn main() {
             Less => { println!("{}", "Too low".red()); },
             Greater => { println!("{}", "Too high".red()); }
         }
+
+        // to make the different guesses more apparent
+        // especially with a NO_COLOR environment
+        print!("\n");
     }
 
-    println!("{}", "You win!".green());
+    println!("{}", "You win!\n".green());
 }
