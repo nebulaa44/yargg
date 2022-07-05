@@ -1,2 +1,2 @@
 # yargg
-Yet Another Rust Guessing Game
+Because there's not enough Rust guessing games.
