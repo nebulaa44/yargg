@@ -1,3 +1,6 @@
+use rand::prelude::*;
+
 fn main() {
-    println!("Hello, world!");
+    let target = rand::thread_rng().gen_range(1..=100);
+    println!("{target}");
 }
