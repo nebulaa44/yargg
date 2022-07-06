@@ -10,8 +10,8 @@ fn main()
     let target = rand::thread_rng().gen_range(1..=100);
 
     let mut guess: String = String::new();
-
     let mut guesses: u8 = 0;
+
     loop 
     {
         // reading stdin to guess doesn't clear it
@@ -32,6 +32,7 @@ fn main()
             .expect("Could not read guess");
 
         // parse the guess into a u8
+        // then check if it's actually a u8
         let parse_result = guess.trim().parse::<u8>();
         let guess_parsed = match parse_result 
         {
@@ -42,6 +43,8 @@ fn main()
             Err(_) => 101
         };
 
+        // ignore guesses that aren't in the
+        // guessing range
         if guess_parsed > 100 || guess_parsed < 1 
         {
             continue;
@@ -64,5 +67,5 @@ fn main()
         .blue();
 
     println!("{}", "You win!".green());
-    println!("You took {} attempts.", guesses_color);
+    println!("You took {guesses_color} attempts.");
 }
