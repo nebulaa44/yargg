@@ -9,6 +9,8 @@ fn main() {
     let target = rand::thread_rng().gen_range(1..=100);
 
     let mut guess: String = String::new();
+
+    let mut guesses: u8 = 0;
     loop {
         // reading stdin to guess doesn't clear it
         // so we have to do it 
@@ -22,6 +24,8 @@ fn main() {
             .flush()
             .expect("Could not flush output");
 
+        // read the guesses into a string
+        guesses += 1;
         stdin()
             .read_line(&mut guess)
             .expect("Could not read guess");
@@ -51,5 +55,6 @@ fn main() {
         print!("\n");
     }
 
-    println!("{}", "You win!\n".green());
+    println!("{}", "You win!".green());
+    println!("You took {} attempts.", guesses);
 }
