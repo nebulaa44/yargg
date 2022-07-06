@@ -55,6 +55,8 @@ fn main() {
         print!("\n");
     }
 
+    let guesses_color = guesses.to_string().blue();
+
     println!("{}", "You win!".green());
-    println!("You took {} attempts.", guesses);
+    println!("You took {} attempts.", guesses_color);
 }
